@@ -170,14 +170,13 @@ public void add(int value) {
 @Override
 public void addToindex(int value, int index) {
     if (index < 0 || index > size) {
-        System.out.println("Error");
-        return;
+      throw new IndexOutOfBoundsException();
     }
     if (head == null) {
         if (index == 0) {
             insertfirst(value);
         } else {
-            System.out.println("Error");
+     throw new IndexOutOfBoundsException();
         }
         return;
     }
@@ -207,8 +206,7 @@ public void set(int value, int index) {
     Dnode temp=head;
     // System.out.println(size);
     if(temp==null||index >= size||index<0){
-        System.out.println("Error");
-        return;
+ throw new IndexOutOfBoundsException();
     }
     for(int i=0;i<index;i++){
         temp=temp.next;
@@ -235,8 +233,7 @@ public boolean isEmpty() {
 @Override
 public void remove(int index) {
     if (index < 0 || index >= size || head == null) {
-        System.out.println("Error");
-        return;
+        throw new IndexOutOfBoundsException();
     }
 
     if (index == 0) {
@@ -371,7 +368,6 @@ public class test {
             int index=scanner.nextInt();
             D1.remove(index);
             D1.display();
-            // System.out.println(index);
         }
         else{
         System.out.println("Error");
